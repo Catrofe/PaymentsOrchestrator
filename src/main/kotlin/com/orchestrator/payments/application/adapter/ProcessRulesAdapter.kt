@@ -54,6 +54,8 @@ class ProcessRulesAdapter: ProcessRulesPort {
             OperatorEnum.LESS_THAN -> actual < expected
             OperatorEnum.GREATER_THAN_OR_EQUAL_TO -> actual >= expected
             OperatorEnum.LESS_THAN_OR_EQUAL_TO -> actual <= expected
+            OperatorEnum.NOT_IN -> false
+            OperatorEnum.IN -> false
         }
     }
 
@@ -61,6 +63,8 @@ class ProcessRulesAdapter: ProcessRulesPort {
         return when (operator) {
             OperatorEnum.EQUALS -> actualValue == expectedValue
             OperatorEnum.NOT_EQUALS -> actualValue != expectedValue
+            OperatorEnum.NOT_IN -> !expectedValue.replace(" ", "").split(",").contains(actualValue)
+            OperatorEnum.IN -> expectedValue.replace(" ", "").split(",").contains(actualValue)
             else -> false
         }
     }
