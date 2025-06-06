@@ -3,6 +3,7 @@ package com.orchestrator.payments.adapters.inbound.rest.v2
 import com.orchestrator.payments.adapters.inbound.rest.v2.request.DecisionBtreeRequest
 import com.orchestrator.payments.adapters.inbound.rest.v2.request.ProcessBtreeRequest
 import com.orchestrator.payments.application.port.DecisionBtreePort
+import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -18,7 +19,7 @@ class DecisionBtreeController(
 
     @PostMapping()
     fun createDecisionBtree(
-        @RequestBody decisionBtree: DecisionBtreeRequest
+        @Valid @RequestBody decisionBtree: DecisionBtreeRequest
     ) = service.createDecisionBtree(decisionBtree = decisionBtree)
 
     @GetMapping()

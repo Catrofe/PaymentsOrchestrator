@@ -3,12 +3,14 @@ package com.orchestrator.payments.adapters.outbound.persistence.model
 import com.orchestrator.payments.adapters.inbound.rest.v2.request.DecisionBtreeRequest
 import com.orchestrator.payments.adapters.inbound.rest.v2.request.FlowRequest
 import com.orchestrator.payments.domain.TypeFlowEnum
+import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.util.UUID
 
 
 @Document(collection = "decision_btree")
 data class DecisionBtreeDocument(
+    @Id
     val merchantCode: String,
     val name: String,
     val description: String? = null,
