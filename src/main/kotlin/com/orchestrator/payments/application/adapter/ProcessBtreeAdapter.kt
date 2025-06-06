@@ -83,13 +83,18 @@ class ProcessBtreeAdapter: ProcessBtreePort {
             OperatorEnum.LESS_THAN -> actual < expected
             OperatorEnum.GREATER_THAN_OR_EQUAL_TO -> actual >= expected
             OperatorEnum.LESS_THAN_OR_EQUAL_TO -> actual <= expected
+            OperatorEnum.NOT_IN -> false
+            OperatorEnum.IN -> false
         }
     }
 
     private fun validateStringCondition(actualValue: String, operator: OperatorEnum, expectedValue: String): Boolean {
+        val teste = 0
         return when (operator) {
             OperatorEnum.EQUALS -> actualValue == expectedValue
             OperatorEnum.NOT_EQUALS -> actualValue != expectedValue
+            OperatorEnum.NOT_IN -> !expectedValue.replace(" ", "").split(",").contains(actualValue)
+            OperatorEnum.IN -> expectedValue.replace(" ", "").split(",").contains(actualValue)
             else -> false
         }
     }
