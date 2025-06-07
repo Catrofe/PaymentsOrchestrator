@@ -4,4 +4,5 @@ enum class FieldEnum {
     AMOUNT,
     BRAND,
     INSTALLMENT,
+    METADATA,
 }
