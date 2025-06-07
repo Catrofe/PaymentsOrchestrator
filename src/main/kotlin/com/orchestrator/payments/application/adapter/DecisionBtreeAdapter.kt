@@ -57,7 +57,9 @@ class DecisionBtreeAdapter(
                 ConditionResponse(
                     field = condition.field,
                     operator = condition.operator,
-                    value = condition.value
+                    value = condition.value,
+                    keyType = condition.keyType,
+                    key = condition.key
                 )
             },
             trueFlow = this.trueFlow?.map { it.toResponse() },

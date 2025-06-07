@@ -2,6 +2,7 @@ package com.orchestrator.payments.adapters.outbound.persistence.model
 
 import com.orchestrator.payments.adapters.inbound.rest.v1.request.DecisionRulesRequest
 import com.orchestrator.payments.domain.FieldEnum
+import com.orchestrator.payments.domain.MetaDataKeyType
 import com.orchestrator.payments.domain.OperatorEnum
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -45,4 +46,6 @@ data class Condition(
     val field: FieldEnum,
     val operator: OperatorEnum,
     val value: String,
+    val keyType: MetaDataKeyType? = null,
+    val key: String? = null
 )

@@ -32,6 +32,10 @@ class ProcessRulesAdapter: ProcessRulesPort {
                     FieldEnum.BRAND -> {
                         validateStringCondition(transactionData.brand, condition.operator, condition.value)
                     }
+
+                    FieldEnum.METADATA -> {
+                    false
+                    }
                 }
             }
 

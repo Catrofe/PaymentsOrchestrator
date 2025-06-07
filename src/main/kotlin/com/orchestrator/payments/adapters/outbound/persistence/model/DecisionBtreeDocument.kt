@@ -32,7 +32,9 @@ data class DecisionBtreeDocument(
                     Condition(
                         field = condition.field,
                         operator = condition.operator,
-                        value = condition.value
+                        value = condition.value,
+                        keyType = condition.keyType,
+                        key = condition.key
                     )
                 },
                 trueFlow = flowRequest.trueFlow?.map { mapFlowRequestToFlowDocument(it) },
