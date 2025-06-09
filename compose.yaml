@@ -7,3 +7,13 @@ services:
       - 'MONGO_INITDB_ROOT_USERNAME=root'
     ports:
       - '27017:27017'
+
+  app:
+    build: .
+    ports:
+      - '8080:8080'
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATA_MONGODB_URI=mongodb://root:secret@mongodb:27017/mydatabase?authSource=admin
+    depends_on:
+      - mongodb
